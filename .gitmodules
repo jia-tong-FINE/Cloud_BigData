@@ -1,0 +1,3 @@
+[submodule "llm_serving/distributed-llama2-server"]
+	path = llm_serving/distributed-llama2-server
+	url = https://github.com/Siritao/distributed-llama2-server.git
