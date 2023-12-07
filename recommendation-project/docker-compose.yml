@@ -1,0 +1,98 @@
+version: "3"
+
+services:
+  node1:
+    container_name: node1
+    image: yjh_rcmd_image
+    restart: always
+    stdin_open: true
+    tty: true
+    shm_size: 2G
+    privileged: true
+    environment:
+      - NODE_ID=1
+    ports:
+      - "32122:22"  # node1 ssh
+      - "32100:8000"  # node1 nginx
+    hostname: node1
+    networks:
+      yjh_rcmd_net:
+        ipv4_address: "${SUBNET:-172.48}.0.11"
+    extra_hosts:
+      - "node2:${SUBNET:-172.48}.0.12"
+      - "node3:${SUBNET:-172.48}.0.13"
+      - "node4:${SUBNET:-172.48}.0.14"
+    command: /bin/bash -c '/usr/sbin/sshd & /bin/bash'
+
+  node2:
+    container_name: node2
+    image: yjh_rcmd_image
+    restart: always
+    stdin_open: true
+    tty: true
+    shm_size: 2G
+    privileged: true
+    environment:
+      - NODE_ID=2
+    hostname: node2
+    networks:
+      yjh_rcmd_net:
+        ipv4_address: "${SUBNET:-172.48}.0.12"
+    extra_hosts:
+      - "node1:${SUBNET:-172.48}.0.11"
+      - "node3:${SUBNET:-172.48}.0.13"
+      - "node4:${SUBNET:-172.48}.0.14"
+    command: /bin/bash -c '/usr/sbin/sshd & /bin/bash'
+
+  node3:
+    container_name: node3
+    image: yjh_rcmd_image
+    restart: always
+    stdin_open: true
+    tty: true
+    shm_size: 2G
+    privileged: true
+    environment:
+      - NODE_ID=3
+    ports:
+      - "31870:9870"  # yarn
+      - "31088:8088"  # hdfs
+    hostname: node3
+    networks:
+      yjh_rcmd_net:
+        ipv4_address: "${SUBNET:-172.48}.0.13"
+    extra_hosts:
+      - "node1:${SUBNET:-172.48}.0.11"
+      - "node2:${SUBNET:-172.48}.0.12"
+      - "node4:${SUBNET:-172.48}.0.14"
+    command: /bin/bash -c '/usr/sbin/sshd -D & /bin/bash'
+
+  node4:
+    container_name: node4
+    image: yjh_rcmd_image
+    restart: always
+    stdin_open: true
+    tty: true
+    shm_size: 2G
+    privileged: true
+    environment:
+      - NODE_ID=4
+    ports:
+      - "31871:9870"  # yarn
+      - "31089:8088"  # hdfs
+    hostname: node4
+    networks:
+      yjh_rcmd_net:
+        ipv4_address: "${SUBNET:-172.48}.0.14"
+    extra_hosts:
+      - "node1:${SUBNET:-172.48}.0.11"
+      - "node2:${SUBNET:-172.48}.0.12"
+      - "node3:${SUBNET:-172.48}.0.13"
+    command: /bin/bash -c '/usr/sbin/sshd -D & /bin/bash'
+
+networks:
+  yjh_rcmd_net:
+    name: yjh_rcmd_net
+    ipam:
+      config:
+        - subnet: "${SUBNET:-172.48}.0.0/16"
