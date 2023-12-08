@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="tools">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/recommendation-project/tools/mongo-java-driver-3.12.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/recommendation-project/tools/spark-streaming-kafka.jar!/" />
+      <root url="jar://$PROJECT_DIR$/recommendation-project/tools/mongo-spark-connector_2.11-2.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
