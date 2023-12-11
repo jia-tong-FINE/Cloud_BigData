@@ -1,0 +1,11 @@
+针对用户 99 进行电影推荐：
+1. 推荐电影：Roommates (1995), 推荐指数为: 7.00，该电影在源数据中id为：787
+2. 推荐电影：Bitter Moon (1992), 推荐指数为: 6.87，该电影在源数据中id为：1268
+3. 推荐电影：Farinelli: il castrato (1994), 推荐指数为: 6.50，该电影在源数据中id为：557
+4. 推荐电影：Kiss of Death (1995), 推荐指数为: 6.40，该电影在源数据中id为：1208
+5. 推荐电影：Wonderful, Horrible Life of Leni Riefenstahl, The (1993), 推荐指数为: 6.33，该电影在源数据中id为：701
+6. 推荐电影：Love and Death on Long Island (1997), 推荐指数为: 6.08，该电影在源数据中id为：913
+7. 推荐电影：I'll Do Anything (1994), 推荐指数为: 5.90，该电影在源数据中id为：1425
+8. 推荐电影：Night of the Living Dead (1968), 推荐指数为: 5.85，该电影在源数据中id为：616
+9. 推荐电影：Doors, The (1991), 推荐指数为: 5.82，该电影在源数据中id为：1135
+10. 推荐电影：Beyond Rangoon (1995), 推荐指数为: 5.80，该电影在源数据中id为：1107
